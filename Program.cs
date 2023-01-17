@@ -11,20 +11,27 @@ namespace CSharpFundamental
             string text = "this is a text";
             string newText = toTitleCase(text);
             Console.WriteLine(newText); // expect to see "This Is A Text"
+            Console.ReadLine();
 
-            /* Challenge 2 */
-            int[,] arrayA = { { 3, 5, 4, 6 }, { 3, 7, 8, 3 } };
-            int[,] arrayB = { { 5, 1 }, { 8, 4 }, { 2, 9 }, { 2, 3 } };
-            int[,] result = matrixMultiply(arrayA, arrayB);
-            Console.WriteLine(result); //share your findings to Slack
+            ///* Challenge 2 */
+            //int[,] arrayA = { { 3, 5, 4, 6 }, { 3, 7, 8, 3 } };
+            //int[,] arrayB = { { 5, 1 }, { 8, 4 }, { 2, 9 }, { 2, 3 } };
+            //int[,] result = matrixMultiply(arrayA, arrayB);
+            //Console.WriteLine(result); //share your findings to Slack
         }
         static string toTitleCase(string input)
         {
-            /* Write your code here */
+            string[] words = input.Split(' ');
+            var wordList = new List<string>();
+            foreach ( var word in words ) 
+            {
+                wordList.Add($"{((word[0].ToString().ToUpper()+(word.Substring(1))))}");
+            }
+                     return string.Join(" ", wordList);
         }
-        static int[,] matrixMultiply(int[,] array1, int[,] array2)
-        {
-            /* Write your code here */
-        }
+        //static int[,] matrixMultiply(int[,] array1, int[,] array2)
+        //{
+        //    /* Write your code here */
+        //}
     }
 }
