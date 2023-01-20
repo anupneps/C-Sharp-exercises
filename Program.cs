@@ -46,11 +46,22 @@ namespace CSharpFundamental
         {
             string[] words = input.Split(' ');
             var wordList = new List<string>();
-            foreach ( var word in words ) 
+
+            /* Approach 1: 
+            foreach (var word in words)
             {
-                wordList.Add($"{((word[0].ToString().ToUpper()+(word.Substring(1))))}");
+                wordList.Add($"{((word[0].ToString().ToUpper() + (word.Substring(1))))}");
             }
-                     return string.Join(" ", wordList);
+            return string.Join(" ", wordList); */
+
+            // Approach 2: Using ASCII value to replace the title case alphabet
+            foreach (var word in words)
+            {
+                var convertToAscii = (System.Convert.ToInt32(word[0]) - 32);
+                char character = (char)convertToAscii;
+                wordList.Add($"{character.ToString() + (word.Substring(1))}");
+            }
+            return string.Join(" ", wordList);
         }
     }
 }
